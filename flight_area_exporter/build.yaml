@@ -1,0 +1,13 @@
+targets:
+  $default:
+    builders:
+      freezed:
+        generate_for:
+          include:
+            - 'lib/map/data/repositories/firestore_map_tile_record.dart'
+            - 'lib/map/application/map_tiles/map_tile_info.dart'
+      riverpod_generator:
+        generate_for:
+          include:
+            - 'lib/map/application/map_tiles/map_tile_info_service.dart'
+            - 'lib/map/presentation/components/line_color_picker_button.dart'

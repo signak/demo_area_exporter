@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="KMLのエリアを地図に表示し、画像として保存するWebApp">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="flight_area_exporter">
+
+  <!-- Favicon -->
+  <meta name="msapplication-square70x70logo" content="icons/site-tile-70x70.png">
+  <meta name="msapplication-square150x150logo" content="icons/site-tile-150x150.png">
+  <meta name="msapplication-wide310x150logo" content="icons/site-tile-310x150.png">
+  <meta name="msapplication-square310x310logo" content="icons/site-tile-310x310.png">
+  <meta name="msapplication-TileColor" content="#0078d7">
+  <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="icons/favicon.ico">
+  <link rel="icon" type="image/vnd.microsoft.icon" href="icons/favicon.ico">
+  <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="icons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="icons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="36x36" href="icons/android-chrome-36x36.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="icons/android-chrome-48x48.png">
+  <link rel="icon" type="image/png" sizes="72x72" href="icons/android-chrome-72x72.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="icons/android-chrome-96x96.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="icons/android-chrome-128x128.png">
+  <link rel="icon" type="image/png" sizes="144x144" href="icons/android-chrome-144x144.png">
+  <link rel="icon" type="image/png" sizes="152x152" href="icons/android-chrome-152x152.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="icons/android-chrome-256x256.png">
+  <link rel="icon" type="image/png" sizes="384x384" href="icons/android-chrome-384x384.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="36x36" href="icons/icon-36x36.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="icons/icon-48x48.png">
+  <link rel="icon" type="image/png" sizes="72x72" href="icons/icon-72x72.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="icons/icon-96x96.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="icons/icon-128x128.png">
+  <link rel="icon" type="image/png" sizes="144x144" href="icons/icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="152x152" href="icons/icon-152x152.png">
+  <link rel="icon" type="image/png" sizes="160x160" href="icons/icon-160x160.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="196x196" href="icons/icon-196x196.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="icons/icon-256x256.png">
+  <link rel="icon" type="image/png" sizes="384x384" href="icons/icon-384x384.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512x512.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16x16.png">
+  <link rel="icon" type="image/png" sizes="24x24" href="icons/icon-24x24.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32x32.png">
+
+  <title>Flight Area Exporter</title>
+  <link rel="manifest" href="manifest.json">
+
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    const serviceWorkerVersion = null;
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer=""></script>
+
+
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+
+
+  <style id="splash-screen-style">
+    html {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      min-height: 100%;
+      background-color: #eeeeee;
+      background-size: 100% 100%;
+    }
+
+    .center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    .contain {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .stretch {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .cover {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .bottom {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      -ms-transform: translate(-50%, 0);
+      transform: translate(-50%, 0);
+    }
+
+    .bottomLeft {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .bottomRight {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #8F9985;
+      }
+    }
+  </style>
+  <script id="splash-screen-script">
+    function removeSplashFromWeb() {
+      document.getElementById("splash")?.remove();
+      document.getElementById("splash-branding")?.remove();
+      document.body.style.background = "transparent";
+    }
+  </script>
+</head>
+
+<body>
+  <picture id="splash">
+    <source
+      srcset="splash/img/light-1x.png 1x, splash/img/light-2x.png 2x, splash/img/light-3x.png 3x, splash/img/light-4x.png 4x"
+      media="(prefers-color-scheme: light)">
+    <source
+      srcset="splash/img/dark-1x.png 1x, splash/img/dark-2x.png 2x, splash/img/dark-3x.png 3x, splash/img/dark-4x.png 4x"
+      media="(prefers-color-scheme: dark)">
+    <img class="center" aria-hidden="true" src="splash/img/light-1x.png" alt="">
+  </picture>
+
+  <script>
+    window.addEventListener('load', function (ev) {
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function (engineInitializer) {
+          engineInitializer.initializeEngine().then(function (appRunner) {
+            appRunner.runApp();
+          });
+        }
+      });
+    });
+  </script>
+
+
+</body>
+
+</html>
